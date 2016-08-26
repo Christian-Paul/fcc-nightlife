@@ -36,11 +36,71 @@ var sessionOptions = {
 app.use(session(sessionOptions));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+
+// twitter oAuth setup
+var twitter = new Twitter({
+	consumerKey: config.twitterConsumerKey,
+	consumerSecret: config.twitterConsumerSecret,
+	callback: config.callbackUrl
+});
+
+var _requestSecret;
+
+// when a user clicks 'sign in' get a request token from twitter and redirect user to sign in with token
+app.get('/request-token', function(req, res) {
+	twitter.getRequestToken(function(err, requestToken, requestSecret) {
+		if(err) {
+			res.status(500).send(err);
+		} else {
+			_requestSecret = requestSecret;
+			res.redirect('https://api.twitter.com/oauth/authenticate?oauth_token=' + requestToken);
+		}
+	});
+});
+
+// when user is sent back from twitter, use results to obtain credentials
+app.get('/login/twitter/callback', function(req, res) {
+	var requestToken = req.query.oauth_token;
+	var verifier = req.query.oauth_verifier;
+
+    twitter.getAccessToken(requestToken, _requestSecret, verifier, function(err, accessToken, accessSecret) {
+        if (err)
+            res.status(500).send(err);
+        else
+            twitter.verifyCredentials(accessToken, accessSecret, function(err, user) {
+                if (err)
+                    res.status(500).send(err);
+                else {
+                	req.session.userInfo = user;
+                	req.session.save(function(err) {
+                		if(err) {
+                			console.log(err);
+                		} else {
+                			res.redirect('/');
+                		}
+                	});
+                }
+            });
+    });
+});
+
+// sign out: destroy session and clear cookies
+app.get('/sign-out', function(req, res) {
+	req.session.destroy(function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			res.clearCookie(sessionOptions.name);
+			res.redirect('/');
+		}
+	})
+});
+
 // begin app
 app.listen(port, function(req, res) {
 	console.log('listening on 3000');
 });
 
 app.get('/', function(req, res) {
-	res.render('index.ejs', {bars: 'bars', userInfo: ''});
+	res.render('index.ejs', {bars: 'bars', userInfo: req.session.userInfo});
 });
