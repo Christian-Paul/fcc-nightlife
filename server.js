@@ -24,7 +24,8 @@ if(port === 3000) {
 		yelpConsumerSecret: process.env.yelpConsumerSecret,
 		yelpToken: process.env.yelpToken,
 		yelpTokenSecret: process.env.yelpTokenSecret,
-		callbackUrl: process.env.callbackUrl
+		callbackUrl: process.env.callbackUrl,
+		sessionSecret: process.env.callbackUrl.sessionSecret
 	};
 }
 
