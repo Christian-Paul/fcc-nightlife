@@ -225,7 +225,10 @@ html, body {
             border-radius: 2px;
             cursor: pointer;
             color: #fff;
-            background-color: #562A72; }
+            background-color: #562A72;
+            transition: background-color 200ms ease; }
+          html .background .main-container .new-query-ui .enter-location .submit-location:hover, body .background .main-container .new-query-ui .enter-location .submit-location:hover {
+            background-color: #744A8E; }
       html .background .main-container .results-ui, body .background .main-container .results-ui {
         display: none;
         flex-direction: column;
@@ -252,16 +255,24 @@ html, body {
           height: 8rem;
           width: 95%; }
           html .background .main-container .results-list .bar .bar-picture, body .background .main-container .results-list .bar .bar-picture {
-            height: 5.625rem;
-            width: 5.625rem;
+            width: 8%;
+            height: auto;
             border-radius: 2px; }
           html .background .main-container .results-list .bar .bar-interface, body .background .main-container .results-list .bar .bar-interface {
-            margin-left: 1.5rem; }
+            display: flex;
+            flex-direction: column;
+            margin-left: 2%;
+            width: 9%; }
+            html .background .main-container .results-list .bar .bar-interface .going-ticker, body .background .main-container .results-list .bar .bar-interface .going-ticker {
+              display: flex; }
             html .background .main-container .results-list .bar .bar-interface .going-button, body .background .main-container .results-list .bar .bar-interface .going-button {
               cursor: pointer; }
-            html .background .main-container .results-list .bar .bar-interface .cancel-interface .cancel-going, body .background .main-container .results-list .bar .bar-interface .cancel-interface .cancel-going {
-              cursor: pointer; }
+            html .background .main-container .results-list .bar .bar-interface .cancel-interface, body .background .main-container .results-list .bar .bar-interface .cancel-interface {
+              flex-direction: column; }
+              html .background .main-container .results-list .bar .bar-interface .cancel-interface .cancel-going, body .background .main-container .results-list .bar .bar-interface .cancel-interface .cancel-going {
+                cursor: pointer; }
           html .background .main-container .results-list .bar .bar-info, body .background .main-container .results-list .bar .bar-info {
-            margin-left: 3rem; }
+            margin-left: 3%;
+            width: 78%; }
 
 /*# sourceMappingURL=style.css.map */

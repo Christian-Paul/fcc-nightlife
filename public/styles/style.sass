@@ -49,6 +49,10 @@ html, body
 						cursor: pointer
 						color: #fff
 						background-color: $accent-dark
+						transition: background-color 200ms ease
+
+					.submit-location:hover
+						background-color: $accent-light
 
 			.results-ui
 				display: none
@@ -82,27 +86,31 @@ html, body
 					width: 95%
 
 					.bar-picture
-						height: 5.625rem
-						width: 5.625rem
+						width: 8%
+						height: auto
 						border-radius: 2px
 
 					.bar-interface
-						margin-left: 1.5rem
+						display: flex
+						flex-direction: column
+						margin-left: 2%
+						width: 9%
 
 						.going-ticker
+							display: flex
 
 						.going-button
 							cursor: pointer
 
 						.cancel-interface
-
-							.going-notification
+							flex-direction: column
 
 							.cancel-going
 								cursor: pointer
 
 					.bar-info
-						margin-left: 3rem
+						margin-left: 3%
+						width: 78%
 
 						.bar-title
 

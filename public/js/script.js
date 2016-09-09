@@ -74,8 +74,7 @@ function buildBarList(i, bar) {
 					<div class="going-ticker">${bar.guests.length} Going</div>
 					<a href="/api/add-guest/${bar.id}" class="going-button ${goingDisplay}">Join Us!</a>
 					<div class="cancel-interface ${cancelDisplay}">
-						<div class="going-notification">You're Partying Here!</div>
-						<a href="/api/remove-guest/${bar.id}" class="cancel-going">I Can't Make it</a>
+						<a href="/api/remove-guest/${bar.id}" class="cancel-going">Can't Make it</a>
 					</div>
 				</div>
 				<div class="bar-info">
@@ -150,7 +149,7 @@ $('.results-list').on('click', 'a.going-button', function(e) {
 	}).done(function(doc) {
 
 		// update number of people going
-		ele.siblings('.going-ticker').text(doc.guests.length);
+		ele.siblings('.going-ticker').text(doc.guests.length + ' Going');
 
 		// toggle interface
 		ele.toggle(500);
@@ -177,7 +176,7 @@ $('.results-list').on('click', 'a.cancel-going', function(e) {
 
 		// update number of people going
 
-		ele.parent().siblings('.going-ticker').text(doc.guests.length);
+		ele.parent().siblings('.going-ticker').text(doc.guests.length + ' Going');
 
 		// toggle interface
 		ele.parent().toggle(500);
