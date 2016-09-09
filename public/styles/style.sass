@@ -1,5 +1,11 @@
 @import 'footer', 'navbar'
 
+.hide
+	display: none
+
+.show
+	display: flex
+
 html, body
 	margin: 0
 	padding: 0
@@ -30,6 +36,7 @@ html, body
 					font-size: 3.5rem
 
 				.enter-location
+					margin-top: 1rem
 
 					.user-location-input
 						height: 1.5rem
@@ -44,7 +51,7 @@ html, body
 						background-color: $accent-dark
 
 			.results-ui
-				display: flex
+				display: none
 				flex-direction: column
 				align-items: center
 
@@ -60,10 +67,11 @@ html, body
 					color: $accent-dark
 
 			.results-list
-				display: flex
+				display: none
 				flex-direction: column
 				align-items: center
 				margin-top: 4rem
+				margin-bottom: 4rem
 				background-color: #fff
 				width: 70%
 

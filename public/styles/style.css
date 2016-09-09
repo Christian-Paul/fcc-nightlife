@@ -60,7 +60,7 @@ footer {
     display: flex;
     justify-content: space-between; }
     .navbar-container .navbar .destination:hover {
-      color: darkorange; }
+      color: #744A8E; }
     .navbar-container .navbar .destination {
       display: flex;
       justify-content: center;
@@ -78,21 +78,21 @@ footer {
         align-items: center;
         justify-content: center; }
         .navbar-container .navbar .destination > a .logo {
-          fill: #e94f28;
+          fill: #562A72;
           transition: fill 250ms ease;
           margin-right: 0.15rem;
           height: 2.5rem;
           width: auto; }
         .navbar-container .navbar .destination > a .logo-name {
-          color: #e94f28;
+          color: #562A72;
           transition: color 250ms ease;
           text-transform: none;
           font-size: 1.5rem;
           font-family: "Comfortaa"; }
       .navbar-container .navbar .destination a:hover .logo {
-        fill: darkorange; }
+        fill: #744A8E; }
       .navbar-container .navbar .destination a:hover .logo-name {
-        color: darkorange; }
+        color: #744A8E; }
       .navbar-container .navbar .destination .user-interface {
         cursor: pointer;
         display: flex;
@@ -170,7 +170,7 @@ footer {
           bottom: 0%;
           border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
       .navbar-container .navbar .destination .sign-in {
-        background-color: #e94f28;
+        background-color: #562A72;
         transition: background-color 250ms ease;
         border-radius: 0.1rem; }
         .navbar-container .navbar .destination .sign-in a {
@@ -182,7 +182,13 @@ footer {
           align-items: center;
           justify-content: center; }
       .navbar-container .navbar .destination .sign-in:hover {
-        background-color: darkorange; }
+        background-color: #744A8E; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: flex; }
 
 html, body {
   margin: 0;
@@ -208,18 +214,20 @@ html, body {
         align-items: center; }
         html .background .main-container .new-query-ui .title, body .background .main-container .new-query-ui .title {
           font-size: 3.5rem; }
-        html .background .main-container .new-query-ui .enter-location .user-location-input, body .background .main-container .new-query-ui .enter-location .user-location-input {
-          height: 1.5rem; }
-        html .background .main-container .new-query-ui .enter-location .submit-location, body .background .main-container .new-query-ui .enter-location .submit-location {
-          height: 1.75rem;
-          width: 6rem;
-          border: none;
-          border-radius: 2px;
-          cursor: pointer;
-          color: #fff;
-          background-color: #e94f28; }
+        html .background .main-container .new-query-ui .enter-location, body .background .main-container .new-query-ui .enter-location {
+          margin-top: 1rem; }
+          html .background .main-container .new-query-ui .enter-location .user-location-input, body .background .main-container .new-query-ui .enter-location .user-location-input {
+            height: 1.5rem; }
+          html .background .main-container .new-query-ui .enter-location .submit-location, body .background .main-container .new-query-ui .enter-location .submit-location {
+            height: 1.75rem;
+            width: 6rem;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #562A72; }
       html .background .main-container .results-ui, body .background .main-container .results-ui {
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center; }
         html .background .main-container .results-ui .title, body .background .main-container .results-ui .title {
@@ -229,12 +237,13 @@ html, body {
           align-self: flex-end;
           transition: color 250ms ease; }
         html .background .main-container .results-ui .start-new-query:hover, body .background .main-container .results-ui .start-new-query:hover {
-          color: #e94f28; }
+          color: #562A72; }
       html .background .main-container .results-list, body .background .main-container .results-list {
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         margin-top: 4rem;
+        margin-bottom: 4rem;
         background-color: #fff;
         width: 70%; }
         html .background .main-container .results-list .bar, body .background .main-container .results-list .bar {
